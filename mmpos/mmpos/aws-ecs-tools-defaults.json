@@ -20,7 +20,7 @@
     "container-port-mapping"    : "80:80",
     "container-environment-variables" : "\"ASPNETCORE_ENVIRONMENT\"=\"Production\"",
     "skip-image-push"                 : false,
-    "cluster-service"                 : "mmpos-web-staging-service",
+    "cluster-service"                 : "staging-mmpos-cluster/mmpos-web-staging-service",
     "desired-count"                   : 2,
     "deployment-minimum-healthy-percent" : 50,
     "deployment-maximum-percent"         : 200,
