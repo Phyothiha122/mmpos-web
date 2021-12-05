@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using mmpos.Data;
 using mmpos.Models;
 using System;
 using System.Collections.Generic;
@@ -12,15 +13,18 @@ namespace mmpos.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly MySqlDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, MySqlDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var users =  _context.User.ToList();
+            return View(users);
         }
 
         public IActionResult Privacy()
